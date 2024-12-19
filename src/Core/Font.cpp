@@ -25,7 +25,7 @@ namespace Core {
             preInitialised = true;
         }
         for(size_t i = 0; i < 5; ++i) {
-            variants[i] = LoadFontEx(path.c_str(), sizes[i], codepoints, sizeof codepoints); // (std::string("fonts/") + 
+            variants[i] = LoadFontEx((std::string("fonts/") + path).c_str(), sizes[i], codepoints, sizeof codepoints); // (std::string("fonts/") + 
         }
     }
 
