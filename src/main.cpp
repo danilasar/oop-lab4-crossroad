@@ -49,14 +49,7 @@ int main ()
 
 	// Load a texture from the resources directory
 	Texture wabbit = LoadTexture("wabbit_alpha.png");
-    int codepoints[480];
-    for (int i = 0; i < 480; i++) {
-        int value = i + 32; // Начинаем с 32
-        codepoints[i] = (value > 127) ? (0x380 + i) : value;
-    }
-    Font myFont = LoadFontEx("Nunito-Bold.ttf", 24, codepoints, 480);
-
-    GuiSetFont(myFont);
+    
     GuiSetStyle(DEFAULT, TEXT_SIZE, 24);
 	
 	// game loop
@@ -95,7 +88,7 @@ int main ()
         //------------------------------------------------------------------------------
 
 
-        DrawTextEx(myFont, TextFormat("MODE: %s", (segments >= 4)? "MANUAL" : "AUTO"), (Vector2){ 640, 280 }, 24, 10, (segments >= 4)? MAROON : DARKGRAY);
+        //DrawTextEx(myFont, TextFormat("MODE: %s", (segments >= 4)? "MANUAL" : "AUTO"), (Vector2){ 640, 280 }, 24, 10, (segments >= 4)? MAROON : DARKGRAY);
 
         DrawFPS(10, 10);
 

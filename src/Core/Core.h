@@ -6,10 +6,10 @@
 namespace Core {
 
     class Core {
-        ResourcesStore *resources;
         Core()
         { }
     public:
+        ResourcesStore *resources;
         Core(const Core& ) = delete;
         static Core& GetInstance();
         void InitGame();

@@ -4,6 +4,8 @@
 
 #include "Core.h"
 #include "raylib.h"
+#include "raygui.h"
+#include "Font.h"
 
 #include "resource_dir.h"	// utility header for SearchAndSetResourceDir
 
@@ -16,9 +18,9 @@ namespace Core {
         return *instance_ptr;
     }
     void Core::InitGame() {
+        // Utility function from resource_dir.h to find the resources folder and set it as the current working directory so we can load from it
+        SearchAndSetResourceDir("resources");
         resources = new ResourcesStore();
-        Texture wabbit = LoadTexture("wabbit_alpha.png");
-        resources->AddTexture("wabbit", wabbit);
 
         // Tell the window to use vsync and work on high DPI displays
         SetConfigFlags(FLAG_VSYNC_HINT | FLAG_WINDOW_HIGHDPI);
@@ -26,8 +28,14 @@ namespace Core {
         // Create the window and OpenGL context
         InitWindow(1280, 800, "Симулятор перекрёстка");
 
-        // Utility function from resource_dir.h to find the resources folder and set it as the current working directory so we can load from it
-        SearchAndSetResourceDir("resources");
+        //Texture wabbit = LoadTexture("wabbit_alpha.png");
+        //resources->AddTexture("wabbit", wabbit);
+        resources->AddFont("default", "Nunito-Bold.ttf");
+        Font *defaultFont = resources->GetFont("default");
+        ::Font font = defaultFont->GetFont(FONT_SIZE_MEDIUM);
+
+        GuiSetFont(font);
+        GuiSetStyle(DEFAULT, TEXT_SIZE, FONT_SIZE_DEFAULT);
     }
 
     void Core::FinishGame() {
