@@ -34,7 +34,7 @@ For a C++ project simply rename the file to .cpp and re-run the build script
 
 int main ()
 {
-    Game::Core &core = Game::Core::GetInstance();
+    Core::Core &core = Core::Core::GetInstance();
     core.InitGame();
 
     float roundness = 0.2f;

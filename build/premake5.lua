@@ -159,15 +159,20 @@ workspace (workspaceName)
     
         includedirs { "../src" }
         includedirs { "../include" }
+        includedirs { "external/raygui/src" }
 
         links {"raylib"}
-
+        links {":raygui.so"}
+        
         cdialect "C99"
         cppdialect "C++17"
 
         includedirs {raylib_dir .. "/src" }
-        includedirs {raylib_dir .."/src/external" }
+        includedirs {raylib_dir .."/src" }
         includedirs { raylib_dir .."/src/external/glfw/include" }
+        libdirs { "external/raygui" }
+        libdirs { "." }
+        libdirs { "../../bin/Debug" }
         flags { "ShadowedVariables"}
         platform_defines()
 

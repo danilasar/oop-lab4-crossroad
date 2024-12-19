@@ -1,9 +1,12 @@
 #ifndef CPP_04_CROSSROAD_CORE_H
 #define CPP_04_CROSSROAD_CORE_H
 
-namespace Game {
+#include "ResourcesStore.h"
+
+namespace Core {
 
     class Core {
+        ResourcesStore *resources;
         Core()
         { }
     public:

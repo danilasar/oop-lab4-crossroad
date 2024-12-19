@@ -12,7 +12,10 @@
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
-            "environment": [],
+            "environment": [{
+              "name": "LD_LIBRARY_PATH",
+              "value": "/data/docs/sgu/code/oop/cpp-04-crossroad/build/external/raygui"
+            }],
             "externalConsole": false,
             "MIMode": "gdb",
             "setupCommands": [
@@ -42,7 +45,10 @@
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
-            "environment": [],
+            "environment": [{
+              "name": "LD_LIBRARY_PATH",
+              "value": "/data/docs/sgu/code/oop/cpp-04-crossroad/build/external/raygui"
+            }],
             "externalConsole": false,
             "program": "${workspaceFolder}/bin/Release/${workspaceFolderBasename}.exe",
             "MIMode": "gdb",
