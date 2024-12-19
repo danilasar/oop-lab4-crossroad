@@ -36,8 +36,21 @@ For a C++ project simply rename the file to .cpp and re-run the build script
 
 #define WORKSPACE_TOP 0
 #define WORKSPACE_LEFT 0
-#define WORKSPACE_WIDTH WINDOW_WIDTH * 0.8
-#define WORKSPACE_HEIGHT WINDOW_WIDTH
+#define WORKSPACE_WIDTH WINDOW_WIDTH * 0.7
+#define WORKSPACE_HEIGHT WINDOW_HEIGHT
+#define WORKSPACE_BOTTOM WORKSPACE_TOP + WORKSPACE_HEIGHT
+#define WORKSPACE_RIGHT WORKSPACE_LEFT + WORKSPACE_WIDTH
+#define WORKSPACE_V_MID (WORKSPACE_BOTTOM - WORKSPACE_TOP) / 2
+#define WORKSPACE_H_MID (WORKSPACE_RIGHT - WORKSPACE_LEFT) / 2
+
+#define MENU_TOP 0
+#define MENU_LEFT WORKSPACE_RIGHT
+#define MENU_RIGHT WINDOW_WIDTH
+#define MENU_BOTTOM WINDOW_HEIGHT
+#define MENU_WIDTH WINDOW_WIDTH - WORKSPACE_WIDTH
+#define MENU_HEIGHT WINDOW_HEIGHT
+#define MENU_V_MID (MENU_BOTTOM - MENU_TOP) / 2
+#define MENU_H_MID (MENU_RIGHT - MENU_LEFT) / 2
 
 Vector2 operator*(const Vector2 v, float scalar) {
         return {v.x * scalar, v.y * scalar};
@@ -132,6 +145,11 @@ int main ()
     
         // Рисуем прямоугольник на позиции (position.x, position.y)
         DrawRectangle(position.x - 10, position.y - 10, 20, 20, RED);
+        DrawRectangle(WORKSPACE_H_MID - 10, WORKSPACE_BOTTOM - 20, 20, 20, RED);
+        DrawRectangle(WORKSPACE_H_MID - 10, WORKSPACE_TOP + 20, 20, 20, GREEN);
+        DrawRectangle(WORKSPACE_LEFT + 20, WORKSPACE_V_MID - 10, 20, 20, BLUE);
+        DrawRectangle(WORKSPACE_RIGHT - 10, WORKSPACE_V_MID - 10, 20, 20, YELLOW);
+        DrawRectangle(WORKSPACE_H_MID - 10, WORKSPACE_V_MID - 10, 20, 20, BROWN);
 
         // Увеличиваем t для следующей итерации
         t += 0.1f * deltaTime; // Шаг можно регулировать для изменения скорости
