@@ -32,19 +32,32 @@ For a C++ project simply rename the file to .cpp and re-run the build script
 
 #include "Core/Core.h"
 
-Vector2 bezier(Vector2 p0, Vector2 p1, Vector2 p2, Vector2 p3, float t) {
-    float u = 1 - t;
-    float tt = t * t;
-    float uu = u * u;
-    float uuu = uu * u;
-    float ttt = tt * t;
+#include <vector>
 
-    Vector2 p = {
-        uuu * p0.x + 3 * uu * t * p1.x + 3 * u * tt * p2.x + ttt * p3.x,
-        uuu * p0.y + 3 * uu * t * p1.y + 3 * u * tt * p2.y + ttt * p3.y
-    };
-    
-    return p;
+#define WORKSPACE_TOP 0
+#define WORKSPACE_LEFT 0
+#define WORKSPACE_WIDTH WINDOW_WIDTH * 0.8
+#define WORKSPACE_HEIGHT WINDOW_WIDTH
+
+Vector2 operator*(const Vector2 v, float scalar) {
+        return {v.x * scalar, v.y * scalar};
+    }
+
+Vector2 operator+(const Vector2 v, const Vector2& other) {
+    return {v.x + other.x, v.y + other.y};
+}
+
+Vector2 bezier(const std::vector<Vector2>& points, float t) {
+    int n = points.size();
+    std::vector<Vector2> temp = points;
+
+    for (int j = 1; j < n; ++j) {
+        for (int i = 0; i < n - j; ++i) {
+            temp[i] = temp[i] * (1 - t) + temp[i + 1] * t;
+        }
+    }
+
+    return temp[0];
 }
 
 int main ()
@@ -115,7 +128,7 @@ int main ()
         GuiCheckBox((Rectangle){ 640, 380, 20, 20}, "DrawRectабо", &drawRect);
         //------------------------------------------------------------------------------
 
-         Vector2 position = bezier(p0, p1, p2, p3, t);
+         Vector2 position = bezier({p0, p1, p2, p3}, t);
     
         // Рисуем прямоугольник на позиции (position.x, position.y)
         DrawRectangle(position.x - 10, position.y - 10, 20, 20, RED);
