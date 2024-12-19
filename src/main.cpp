@@ -32,6 +32,21 @@ For a C++ project simply rename the file to .cpp and re-run the build script
 
 #include "Core/Core.h"
 
+Vector2 bezier(Vector2 p0, Vector2 p1, Vector2 p2, Vector2 p3, float t) {
+    float u = 1 - t;
+    float tt = t * t;
+    float uu = u * u;
+    float uuu = uu * u;
+    float ttt = tt * t;
+
+    Vector2 p = {
+        uuu * p0.x + 3 * uu * t * p1.x + 3 * u * tt * p2.x + ttt * p3.x,
+        uuu * p0.y + 3 * uu * t * p1.y + 3 * u * tt * p2.y + ttt * p3.y
+    };
+    
+    return p;
+}
+
 int main ()
 {
     Core::Core &core = Core::Core::GetInstance();
@@ -51,10 +66,23 @@ int main ()
 	Texture wabbit = LoadTexture("wabbit_alpha.png");
     
     GuiSetStyle(DEFAULT, TEXT_SIZE, 24);
+
+    Vector2 p0 = {100, 100}; // Начальная точка
+    Vector2 p1 = {150, 50};  // Первая контрольная точка
+    Vector2 p2 = {200, 150}; // Вторая контрольная точка
+    Vector2 p3 = {250, 100}; // Конечная точка
+
+    float t = 0.0f;
+
+    double lastTime = GetTime();      // Прошедшее время
+    double deltaTime = 0.0;      // Прошедшее время
 	
 	// game loop
 	while (!WindowShouldClose())		// run the loop untill the user presses ESCAPE or presses the Close button on the window
 	{
+        double newTime = GetTime();
+        deltaTime = newTime - lastTime;
+        lastTime = newTime;
         // Update
         //----------------------------------------------------------------------------------
         Rectangle rec = { ((float)GetScreenWidth() - width - 250)/2, (GetScreenHeight() - height)/2.0f, (float)width, (float)height };
@@ -86,6 +114,14 @@ int main ()
         GuiCheckBox((Rectangle){ 640, 350, 20, 20 }, "DrawRoundedLines", &drawRoundedLines);
         GuiCheckBox((Rectangle){ 640, 380, 20, 20}, "DrawRectабо", &drawRect);
         //------------------------------------------------------------------------------
+
+         Vector2 position = bezier(p0, p1, p2, p3, t);
+    
+        // Рисуем прямоугольник на позиции (position.x, position.y)
+        DrawRectangle(position.x - 10, position.y - 10, 20, 20, RED);
+
+        // Увеличиваем t для следующей итерации
+        t += 0.1f * deltaTime; // Шаг можно регулировать для изменения скорости
 
 
         //DrawTextEx(myFont, TextFormat("MODE: %s", (segments >= 4)? "MANUAL" : "AUTO"), (Vector2){ 640, 280 }, 24, 10, (segments >= 4)? MAROON : DARKGRAY);

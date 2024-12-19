@@ -26,7 +26,7 @@ namespace Core {
         SetConfigFlags(FLAG_VSYNC_HINT | FLAG_WINDOW_HIGHDPI);
 
         // Create the window and OpenGL context
-        InitWindow(1280, 800, "Симулятор перекрёстка");
+        InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Симулятор перекрёстка");
 
         //Texture wabbit = LoadTexture("wabbit_alpha.png");
         //resources->AddTexture("wabbit", wabbit);

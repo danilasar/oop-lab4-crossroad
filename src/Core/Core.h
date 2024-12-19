@@ -3,6 +3,9 @@
 
 #include "ResourcesStore.h"
 
+#define WINDOW_WIDTH  1280
+#define WINDOW_HEIGHT 800
+
 namespace Core {
 
     class Core {
