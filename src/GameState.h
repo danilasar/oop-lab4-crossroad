@@ -5,6 +5,8 @@
 #ifndef CPP_04_CROSSROAD_GAMESTATE_H
 #define CPP_04_CROSSROAD_GAMESTATE_H
 
+#include "raylib.h"
+
 namespace Game {
 
     class GameState {
@@ -18,6 +20,8 @@ namespace Game {
         bool drawRect = false;
         bool drawRoundedRect = true;
         bool drawRoundedLines = false;
+
+        Rectangle rec;
     };
 
 } // Core

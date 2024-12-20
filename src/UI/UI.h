@@ -6,12 +6,15 @@
 #define CPP_04_CROSSROAD_UI_H
 
 #include "Workspace.h"
-#include "UI.h"
+#include "Menu.h"
 
 namespace Game {
 
     class UI {
+        Menu *menu;
+        Workspace *workspace;
     public:
+        UI();
         void InitUI();
         void RedrawUI();
     };

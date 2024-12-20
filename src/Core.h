@@ -1,8 +1,10 @@
+#pragma once
 #ifndef CPP_04_CROSSROAD_CORE_H
-#define CPP_04_CROSSROAD_CORE_H
+//#define CPP_04_CROSSROAD_CORE_H
 
 #include "ResourcesStore.h"
 #include "GameState.h"
+#include "UI/UI.h"
 
 #define WINDOW_WIDTH  1280
 #define WINDOW_HEIGHT 800
@@ -33,6 +35,7 @@ namespace Game {
         Core()
         { }
         double lastTime = GetTime();      // Прошедшее время
+        UI *ui;
     public:
         ResourcesStore *resources;
         GameState *state;

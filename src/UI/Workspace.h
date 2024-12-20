@@ -8,6 +8,7 @@
 namespace Game {
 
     class Workspace {
+        void DrawRoad();
     public:
         void InitUI();
         void RedrawUI();
