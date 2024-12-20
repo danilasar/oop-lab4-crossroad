@@ -8,7 +8,7 @@
 #include "Font.h"
 
 
-namespace Core {
+namespace Game {
 	class ResourcesStore {
 		std::map<std::string, Texture> textures;
         std::map<std::string, Font*> fonts;

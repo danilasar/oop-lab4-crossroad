@@ -16,7 +16,7 @@
 #define FONT_SIZES_COUNT 5
 #define FONT_SIZE_DEFAULT FONT_SIZE_MEDIUM
 
-namespace Core {
+namespace Game {
     class Font {
         ::Font variants[FONT_SIZES_COUNT];
     public:

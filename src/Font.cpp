@@ -9,7 +9,7 @@
 int sizes[5];
 int codepoints[480];
 
-namespace Core {
+namespace Game {
     Font::Font(const std::string &path) {
         static bool preInitialised;
         if(!preInitialised) {

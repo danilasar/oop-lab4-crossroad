@@ -5,7 +5,7 @@
 #include <map>
 #include "ResourcesStore.h"
 
-namespace Core {
+namespace Game {
     ResourcesStore::ResourcesStore() {
     }
     void ResourcesStore::AddTexture(const std::string &textureName, Texture &texture) {
