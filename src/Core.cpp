@@ -11,12 +11,13 @@
 #include "resource_dir.h"    // utility header for SearchAndSetResourceDir
 
 namespace Game {
-    Core &Core::GetInstance() {
-        static Core* instance_ptr = nullptr;
-        if(instance_ptr == nullptr)  {
-            instance_ptr = new Core();
+    Core::Core() {}
+    std::shared_ptr<Core> Core::GetInstance() {
+        //static Core* instance_ptr = nullptr;
+        if(_instance.get() == nullptr)  {
+            _instance = std::make_shared<Core>(Core());
         }
-        return *instance_ptr;
+        return _instance;
     }
     void Core::InitGame() {
         state = new GameState();
@@ -50,7 +51,7 @@ namespace Game {
     }
 
     void Core::RunGame() {
-        Game::Core& core = Game::Core::GetInstance();
+        std::shared_ptr<Core> core = Game::Core::GetInstance();
         // game loop
         while (!WindowShouldClose())		// run the loop untill the user presses ESCAPE or presses the Close button on the window
         {

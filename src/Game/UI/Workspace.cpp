@@ -23,18 +23,18 @@ namespace Game {
     }
 
     void Workspace::RedrawUI() {
-        Game::Core &core = Game::Core::GetInstance();
+        std::shared_ptr<Core> core = Game::Core::GetInstance();
         ClearBackground(RAYWHITE);
 
         DrawRoad();
-        core.state->rec = { ((float)GetScreenWidth() - core.state->width - 250)/2, (GetScreenHeight() - core.state->height)/2.0f, (float)core.state->width, (float)core.state->height };
+        core->state->rec = { ((float)GetScreenWidth() - core->state->width - 250)/2, (GetScreenHeight() - core->state->height)/2.0f, (float)core->state->width, (float)core->state->height };
 
         DrawLine(560, 0, 560, GetScreenHeight(), Fade(LIGHTGRAY, 0.6f));
         DrawRectangle(600, 0, GetScreenWidth() - 500, GetScreenHeight(), Fade(LIGHTGRAY, 0.3f));
 
-        if (core.state->drawRect) DrawRectangleRec(core.state->rec, Fade(GOLD, 0.6f));
-        if (core.state->drawRoundedRect) DrawRectangleRounded(core.state->rec, core.state->roundness, (int)core.state->segments, Fade(MAROON, 0.2f));
-        if (core.state->drawRoundedLines) DrawRectangleRoundedLinesEx(core.state->rec, core.state->roundness, (int)core.state->segments, core.state->lineThick, Fade(MAROON, 0.4f));
+        if (core->state->drawRect) DrawRectangleRec(core->state->rec, Fade(GOLD, 0.6f));
+        if (core->state->drawRoundedRect) DrawRectangleRounded(core->state->rec, core->state->roundness, (int)core->state->segments, Fade(MAROON, 0.2f));
+        if (core->state->drawRoundedLines) DrawRectangleRoundedLinesEx(core->state->rec, core->state->roundness, (int)core->state->segments, core->state->lineThick, Fade(MAROON, 0.4f));
 
         Vector2 position = bezier({p0, p1, p2, p3}, t);
 
@@ -49,6 +49,6 @@ namespace Game {
         
 
         // Увеличиваем t для следующей итерации
-        t += 0.1f * core.GetDeltaTime(); // Шаг можно регулировать для изменения скорости
+        t += 0.1f * core->GetDeltaTime(); // Шаг можно регулировать для изменения скорости
     }
 } // Game

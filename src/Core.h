@@ -23,17 +23,17 @@
 namespace Game {
 
     class Core {
-        Core()
-        { }
+        Core();
         double lastTime = GetTime();      // Последнее время
         double deltaTime = 0.0;           // Разница во времени с предыдущим игровым циклом
         std::vector<std::unique_ptr<::Engine::Systems::System>> systems;
         std::deque<std::shared_ptr<::Engine::Entities::EntityBase>> entities;
+        static inline std::shared_ptr<Core> _instance;
     public:
         ResourcesStore *resources;
         GameState *state;
-        Core(const Core& ) = delete;
-        static Core& GetInstance();
+        //Core(const Core& ) = delete;
+        static std::shared_ptr<Core> GetInstance();
         void InitGame();
         void RunGame();
         void FinishGame();

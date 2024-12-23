@@ -3,6 +3,7 @@
 //
 
 #include "TrafficSystem.h"
+#include "../../../Core.h"
 
 
 namespace Game {
