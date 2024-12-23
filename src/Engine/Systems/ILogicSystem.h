@@ -12,9 +12,7 @@ namespace Engine {
 
         class ILogicSystem : public System {
         public:
-            virtual void Update() {
-                throw Engine::Exceptions::NotImplementedException();
-            }
+            virtual void Update();
         };
 
     } // Systems

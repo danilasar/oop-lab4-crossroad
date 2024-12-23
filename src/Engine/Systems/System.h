@@ -5,6 +5,8 @@
 #ifndef CPP_04_CROSSROAD_SYSTEM_H
 #define CPP_04_CROSSROAD_SYSTEM_H
 
+#include "../Errors/NotImplementedException.h"
+
 namespace Engine {
     namespace Systems {
 

@@ -6,7 +6,6 @@
 #define CPP_04_CROSSROAD_IGRAPHICSYSTEM_H
 
 #include "System.h"
-#include "../Errors/NotImplementedException.h"
 
 namespace Engine {
     namespace Systems {
