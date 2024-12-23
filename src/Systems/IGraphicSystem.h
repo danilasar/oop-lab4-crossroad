@@ -6,16 +6,13 @@
 #define CPP_04_CROSSROAD_IGRAPHICSYSTEM_H
 
 #include "System.h"
-#include "../Errors/NotImplementedException.h"
 
-namespace Engine {
+namespace Game {
     namespace Systems {
 
-        class IGraphicSystem : public System {
+        class IGraphicSystem {
         public:
-            virtual void Redraw() {
-                throw Engine::Exceptions::NotImplementedException();
-            }
+            virtual void Redraw();
         };
 
     } // Systems

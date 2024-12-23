@@ -3,3 +3,8 @@
 //
 
 #include "RoadSystem.h"
+
+namespace Game {
+    namespace Systems {
+    }
+}
