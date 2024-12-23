@@ -10,7 +10,7 @@
 namespace Engine {
     namespace Systems {
 
-        class IUnloadSystem : public System {
+        class IUnloadSystem : public virtual System {
         public:
             virtual void Unload();
             void system() override {}

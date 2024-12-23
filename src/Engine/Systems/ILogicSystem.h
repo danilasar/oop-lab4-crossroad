@@ -10,7 +10,7 @@
 namespace Engine {
     namespace Systems {
 
-        class ILogicSystem : public System {
+        class ILogicSystem : public virtual System {
         public:
             virtual void Update();
             void system() override {}

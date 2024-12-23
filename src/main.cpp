@@ -7,6 +7,7 @@
 #include "Core.h"
 #include "Engine/Systems/IGraphicSystem.h"
 #include "Game/Road/Systems/RoadSystem.h"
+#include "Game/Car/Systems/CarPainter.h"
 #include "Game/UI/Systems/BackgroundSystem.h"
 
 #include <memory>
@@ -15,9 +16,11 @@
 void LoadSystems(Game::Core &core) {
     std::unique_ptr<Game::Systems::RoadSystem> roadSystem = { std::make_unique<Game::Systems::RoadSystem>(Game::Systems::RoadSystem()) };
     std::unique_ptr<Game::Systems::BackgroundSystem> backgroundSystem = { std::make_unique<Game::Systems::BackgroundSystem>(Game::Systems::BackgroundSystem()) };
+    std::unique_ptr<Game::Systems::CarPainter> carPainterSystem = { std::make_unique<Game::Systems::CarPainter>(Game::Systems::CarPainter()) };
 
     core.AddSystem(std::move(backgroundSystem));
     core.AddSystem(std::move(roadSystem));
+    core.AddSystem(std::move(carPainterSystem));
 }
 
 int main ()

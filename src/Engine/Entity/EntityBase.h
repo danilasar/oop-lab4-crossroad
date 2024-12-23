@@ -5,11 +5,14 @@
 #ifndef CPP_04_CROSSROAD_ENTITYBASE_H
 #define CPP_04_CROSSROAD_ENTITYBASE_H
 
+#include <string>
+
 namespace Engine {
     namespace Entities {
 
         class EntityBase {
-
+        public:
+            virtual std::string GetEntityName() const { return "Undefined"; };
         };
 
     } // Entities

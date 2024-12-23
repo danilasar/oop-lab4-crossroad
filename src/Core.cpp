@@ -92,4 +92,8 @@ namespace Game {
     double Core::GetDeltaTime() {
         return deltaTime;
     }
+
+    std::shared_ptr<std::deque<std::shared_ptr<::Engine::Entities::EntityBase>>> Core::GetEntities() {
+        return std::make_shared<std::deque<std::shared_ptr<::Engine::Entities::EntityBase>>>(entities);
+    }
 } // Game
