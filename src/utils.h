@@ -6,7 +6,6 @@
 #define CPP_04_CROSSROAD_UTILS_H
 #include <vector>
 #include "raylib.h"
-#include "Engine/Utils/UcpPtr.h"
 
 
 #define WORKSPACE_TOP 0
