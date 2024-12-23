@@ -31,6 +31,8 @@ For a C++ project simply rename the file to .cpp and re-run the build script
 #include "resource_dir.h"	// utility header for SearchAndSetResourceDir
 
 #include "Core.h"
+#include "Engine/Systems/IGraphicSystem.h"
+#include "Game/Road/Systems/RoadSystem.h"
 
 #include <vector>
 
@@ -38,7 +40,9 @@ For a C++ project simply rename the file to .cpp and re-run the build script
 int main ()
 {
     Game::Core &core = Game::Core::GetInstance();
+    Game::Systems::RoadSystem roadSystem = Game::Systems::RoadSystem();
     core.InitGame();
+    core.AddSystem(roadSystem);
 
     core.RunGame();
 

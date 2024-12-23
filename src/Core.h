@@ -9,6 +9,8 @@
 #include "Engine/Systems/IGraphicSystem.h"
 #include "Engine/Systems/ILogicSystem.h"
 #include <deque>
+#include <functional>
+
 
 #define WINDOW_WIDTH  1280
 #define WINDOW_HEIGHT 800
@@ -23,8 +25,8 @@ namespace Game {
         { }
         double lastTime = GetTime();      // Прошедшее время
         UI *ui;
-        std::deque<::Engine::Systems::ILogicSystem> logicSystems;
-        std::deque<::Engine::Systems::IGraphicSystem> graphicSystems;
+        std::deque<std::reference_wrapper<::Engine::Systems::ILogicSystem>> logicSystems;
+        std::deque<std::reference_wrapper<::Engine::Systems::IGraphicSystem>> graphicSystems;
     public:
         ResourcesStore *resources;
         GameState *state;
