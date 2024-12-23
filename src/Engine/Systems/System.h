@@ -11,7 +11,7 @@ namespace Engine {
     namespace Systems {
 
         class System {
-
+            virtual void system() {}
         };
 
     } // Systems

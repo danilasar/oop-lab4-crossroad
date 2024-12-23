@@ -6,7 +6,7 @@
 
 namespace Engine {
     namespace Systems {
-        void IUnloadSystem::Update() {
+        void IUnloadSystem::Unload() {
             throw Engine::Exceptions::NotImplementedException();
         }
     } // Systems

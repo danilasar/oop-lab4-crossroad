@@ -38,14 +38,15 @@ namespace Game {
 
         GuiSetFont(font);
         GuiSetStyle(DEFAULT, TEXT_SIZE, FONT_SIZE_DEFAULT);
+        for(size_t i = 0; i < systems.size(); ++i) {
+            if (auto *(val) = dynamic_cast<::Engine::Systems::ILoadSystem*>(systems[i].get())) {
+                val->Load();
+            }
+        }
     }
 
-    void Core::AddSystem(std::unique_ptr<::Engine::Systems::ILogicSystem> system) {
-        logicSystems.push_back(std::move(system));
-    }
-
-    void Core::AddSystem(std::unique_ptr<::Engine::Systems::IGraphicSystem> system) {
-        graphicSystems.push_back(std::move(system));
+    void Core::AddSystem(std::unique_ptr<::Engine::Systems::System> system) {
+        systems.push_back(std::move(system));
     }
 
     void Core::RunGame() {
@@ -58,20 +59,19 @@ namespace Game {
             lastTime = newTime;
             // Update
             //----------------------------------------------------------------------------------
-            for(size_t i = 0; i < logicSystems.size(); ++i) {
-                logicSystems[i]->Update();
+            for(size_t i = 0; i < systems.size(); ++i) {
+                if (auto *(val) = dynamic_cast<::Engine::Systems::ILogicSystem*>(systems[i].get())) {
+                    val->Update();
+                }
             }
             //----------------------------------------------------------------------------------
 
             // Draw
             //----------------------------------------------------------------------------------
             BeginDrawing();
-            for(size_t i = 0; i < graphicSystems.size(); ++i) {
-                //graphicSystems[i]->Redraw();
-                if (auto *(val) = dynamic_cast<::Engine::Systems::IGraphicSystem*>(graphicSystems[i].get())) {
-                    graphicSystems[i].release();
+            for(size_t i = 0; i < systems.size(); ++i) {
+                if (auto *(val) = dynamic_cast<::Engine::Systems::IGraphicSystem*>(systems[i].get())) {
                     val->Redraw();
-                    graphicSystems[i] = std::unique_ptr<::Engine::Systems::IGraphicSystem>(val);
                 }
             }
             EndDrawing();
@@ -80,6 +80,11 @@ namespace Game {
     }
 
     void Core::FinishGame() {
+        for(size_t i = 0; i < systems.size(); ++i) {
+            if (auto *(val) = dynamic_cast<::Engine::Systems::IUnloadSystem*>(systems[i].get())) {
+                val->Unload();
+            }
+        }
         // destroy the window and cleanup the OpenGL context
         CloseWindow();
     }

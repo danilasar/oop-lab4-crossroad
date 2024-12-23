@@ -13,6 +13,7 @@ namespace Engine {
         class ILogicSystem : public System {
         public:
             virtual void Update();
+            void system() override {}
         };
 
     } // Systems

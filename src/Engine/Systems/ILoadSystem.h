@@ -2,8 +2,8 @@
 // Created by danilasar on 23.12.2024.
 //
 
-#ifndef CPP_04_CROSSROAD_ILOGICSYSTEM_H
-#define CPP_04_CROSSROAD_ILOGICSYSTEM_H
+#ifndef CPP_04_CROSSROAD_ILOADSYSTEM_H
+#define CPP_04_CROSSROAD_ILOADSYSTEM_H
 
 #include "System.h"
 
@@ -12,10 +12,11 @@ namespace Engine {
 
         class ILoadSystem : public System {
         public:
-            virtual void Update();
+            virtual void Load();
+            void system() override {}
         };
 
     } // Systems
 } // Game
 
-#endif //CPP_04_CROSSROAD_ILOGICSYSTEM_H
+#endif //CPP_04_CROSSROAD_ILOADSYSTEM_H
