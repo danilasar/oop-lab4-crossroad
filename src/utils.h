@@ -6,11 +6,12 @@
 #define CPP_04_CROSSROAD_UTILS_H
 #include <vector>
 #include "raylib.h"
+#include "Engine/Utils/UcpPtr.h"
 
 
 #define WORKSPACE_TOP 0
 #define WORKSPACE_LEFT 0
-#define WORKSPACE_WIDTH GetScreenWidth() * 0.7
+#define WORKSPACE_WIDTH GetScreenWidth() * 1.0
 #define WORKSPACE_HEIGHT GetScreenHeight()
 #define WORKSPACE_BOTTOM WORKSPACE_TOP + WORKSPACE_HEIGHT
 #define WORKSPACE_RIGHT WORKSPACE_LEFT + WORKSPACE_WIDTH

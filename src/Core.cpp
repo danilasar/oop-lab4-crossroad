@@ -23,8 +23,6 @@ namespace Game {
         // Utility function from resource_dir.h to find the resources folder and set it as the current working directory so we can load from it
         SearchAndSetResourceDir("resources");
         resources = new ResourcesStore();
-        ui = new UI();
-        ui->InitUI();
 
         // Tell the window to use vsync and work on high DPI displays
         SetConfigFlags(FLAG_VSYNC_HINT | FLAG_WINDOW_HIGHDPI);
@@ -42,12 +40,12 @@ namespace Game {
         GuiSetStyle(DEFAULT, TEXT_SIZE, FONT_SIZE_DEFAULT);
     }
 
-    void Core::AddSystem(::Engine::Systems::ILogicSystem& system) {
-        logicSystems.push_back(system);
+    void Core::AddSystem(std::unique_ptr<::Engine::Systems::ILogicSystem> system) {
+        logicSystems.push_back(std::move(system));
     }
 
-    void Core::AddSystem(::Engine::Systems::IGraphicSystem& system) {
-        graphicSystems.push_back(system);
+    void Core::AddSystem(std::unique_ptr<::Engine::Systems::IGraphicSystem> system) {
+        graphicSystems.push_back(std::move(system));
     }
 
     void Core::RunGame() {
@@ -60,17 +58,21 @@ namespace Game {
             lastTime = newTime;
             // Update
             //----------------------------------------------------------------------------------
-            for(::Engine::Systems::ILogicSystem& system : logicSystems) {
-                system.Update();
+            for(size_t i = 0; i < logicSystems.size(); ++i) {
+                logicSystems[i]->Update();
             }
             //----------------------------------------------------------------------------------
 
             // Draw
             //----------------------------------------------------------------------------------
             BeginDrawing();
-            ui->RedrawUI();
-            for(::Engine::Systems::IGraphicSystem& system : graphicSystems) {
-                system.Redraw();
+            for(size_t i = 0; i < graphicSystems.size(); ++i) {
+                //graphicSystems[i]->Redraw();
+                if (auto *(val) = dynamic_cast<::Engine::Systems::IGraphicSystem*>(graphicSystems[i].get())) {
+                    graphicSystems[i].release();
+                    val->Redraw();
+                    graphicSystems[i] = std::unique_ptr<::Engine::Systems::IGraphicSystem>(val);
+                }
             }
             EndDrawing();
             //----------------------------------------------------------------------------------
@@ -80,5 +82,9 @@ namespace Game {
     void Core::FinishGame() {
         // destroy the window and cleanup the OpenGL context
         CloseWindow();
+    }
+
+    double Core::GetDeltaTime() {
+        return deltaTime;
     }
 } // Game

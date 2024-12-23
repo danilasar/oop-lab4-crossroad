@@ -10,6 +10,7 @@
 #include "Engine/Systems/ILogicSystem.h"
 #include <deque>
 #include <functional>
+#include <memory>
 
 
 #define WINDOW_WIDTH  1280
@@ -24,20 +25,20 @@ namespace Game {
         Core()
         { }
         double lastTime = GetTime();      // Прошедшее время
-        UI *ui;
-        std::deque<std::reference_wrapper<::Engine::Systems::ILogicSystem>> logicSystems;
-        std::deque<std::reference_wrapper<::Engine::Systems::IGraphicSystem>> graphicSystems;
+        double deltaTime = 0.0;      // Прошедшее время
+        std::deque<std::unique_ptr<::Engine::Systems::ILogicSystem>> logicSystems;
+        std::deque<std::unique_ptr<::Engine::Systems::IGraphicSystem>> graphicSystems;
     public:
         ResourcesStore *resources;
         GameState *state;
-        double deltaTime = 0.0;      // Прошедшее время
         Core(const Core& ) = delete;
         static Core& GetInstance();
         void InitGame();
-        void AddSystem(::Engine::Systems::ILogicSystem& system);
-        void AddSystem(::Engine::Systems::IGraphicSystem& system);
+        void AddSystem(std::unique_ptr<::Engine::Systems::ILogicSystem> system);
+        void AddSystem(std::unique_ptr<::Engine::Systems::IGraphicSystem> system);
         void RunGame();
         void FinishGame();
+        double GetDeltaTime();
     };
 
 } // Game
