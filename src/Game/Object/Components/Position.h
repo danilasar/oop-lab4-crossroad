@@ -5,7 +5,7 @@
 #ifndef CPP_04_CROSSROAD_POSITION_H
 #define CPP_04_CROSSROAD_POSITION_H
 
-#include "../../Engine/Components/ComponentBase.h"
+#include "../../../Engine/Components/ComponentBase.h"
 
 namespace Game {
     namespace Components  {

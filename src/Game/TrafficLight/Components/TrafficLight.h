@@ -5,8 +5,8 @@
 #ifndef CPP_04_CROSSROAD_TRAFFICLIGHT_H
 #define CPP_04_CROSSROAD_TRAFFICLIGHT_H
 
-#include "../../utils.h"
-#include "../../../build/external/raylib-master/src/raylib.h"
+#include "../../../utils.h"
+#include "../../../../build/external/raylib-master/src/raylib.h"
 namespace Game {
     namespace Components {
 

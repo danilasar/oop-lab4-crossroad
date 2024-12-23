@@ -3,8 +3,8 @@
 //
 
 #include "TrafficLight.h"
-#include "../../../build/external/raylib-master/src/raylib.h"
-#include "../../../build/external/raylib-master/examples/shapes/raygui.h"
+#include "../../../../build/external/raylib-master/src/raylib.h"
+#include "../../../../build/external/raylib-master/examples/shapes/raygui.h"
 
 namespace Game {
     namespace Components {
