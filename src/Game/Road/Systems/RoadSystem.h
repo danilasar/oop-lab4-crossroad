@@ -11,9 +11,7 @@ namespace Game {
     namespace Systems {
         class RoadSystem : public ::Engine::Systems::IGraphicSystem {
         public:
-            void Redraw() {
-                2 + 2;
-            }
+            void Redraw();
 
         };
     }
