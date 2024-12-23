@@ -5,7 +5,7 @@
 #ifndef CPP_04_CROSSROAD_COMPONENTBASE_H
 #define CPP_04_CROSSROAD_COMPONENTBASE_H
 
-namespace Game {
+namespace Engine {
     namespace Components {
 
         class ComponentBase {

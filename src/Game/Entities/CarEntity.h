@@ -5,7 +5,7 @@
 #ifndef CPP_04_CROSSROAD_CARENTITY_H
 #define CPP_04_CROSSROAD_CARENTITY_H
 
-#include "EntityBase.h"
+#include "../../Engine/Entity/EntityBase.h"
 
 namespace Game {
     namespace Entities {

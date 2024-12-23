@@ -5,7 +5,7 @@
 #ifndef CPP_04_CROSSROAD_ENTITYBASE_H
 #define CPP_04_CROSSROAD_ENTITYBASE_H
 
-namespace Game {
+namespace Engine {
     namespace Entities {
 
         class EntityBase {

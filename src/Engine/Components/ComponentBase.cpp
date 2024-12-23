@@ -4,7 +4,7 @@
 
 #include "ComponentBase.h"
 
-namespace Game {
+namespace Engine {
     namespace Components {
     } // Components
 } // Game

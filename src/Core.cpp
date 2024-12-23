@@ -42,6 +42,14 @@ namespace Game {
         GuiSetStyle(DEFAULT, TEXT_SIZE, FONT_SIZE_DEFAULT);
     }
 
+    void Core::AddSystem(::Engine::Systems::ILogicSystem& system) {
+        logicSystems.push_back(system);
+    }
+
+    void Core::AddSystem(::Engine::Systems::IGraphicSystem& system) {
+        graphicSystems.push_back(system);
+    }
+
     void Core::RunGame() {
         Game::Core& core = Game::Core::GetInstance();
         // game loop
@@ -52,14 +60,18 @@ namespace Game {
             lastTime = newTime;
             // Update
             //----------------------------------------------------------------------------------
-            
+            for(::Engine::Systems::ILogicSystem& system : logicSystems) {
+                system.Update();
+            }
             //----------------------------------------------------------------------------------
 
             // Draw
             //----------------------------------------------------------------------------------
             BeginDrawing();
             ui->RedrawUI();
-
+            for(::Engine::Systems::IGraphicSystem& system : graphicSystems) {
+                system.Redraw();
+            }
             EndDrawing();
             //----------------------------------------------------------------------------------
         }
