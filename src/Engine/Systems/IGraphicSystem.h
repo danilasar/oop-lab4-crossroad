@@ -10,7 +10,7 @@
 namespace Engine {
     namespace Systems {
 
-        class IGraphicSystem : public System {
+        class IGraphicSystem : public virtual System {
         public:
             virtual void Redraw();
             void system() override {}

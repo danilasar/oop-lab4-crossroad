@@ -10,7 +10,7 @@
 namespace Engine {
     namespace Systems {
 
-        class ILoadSystem : public System {
+        class ILoadSystem : public virtual System {
         public:
             virtual void Load();
             void system() override {}

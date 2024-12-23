@@ -23,8 +23,8 @@ namespace Game {
     class Core {
         Core()
         { }
-        double lastTime = GetTime();      // Прошедшее время
-        double deltaTime = 0.0;      // Прошедшее время
+        double lastTime = GetTime();      // Последнее время
+        double deltaTime = 0.0;           // Разница во времени с предыдущим игровым циклом
         std::deque<std::unique_ptr<::Engine::Systems::System>> systems;
     public:
         ResourcesStore *resources;

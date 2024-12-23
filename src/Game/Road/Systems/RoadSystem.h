@@ -5,7 +5,7 @@
 #ifndef CPP_04_CROSSROAD_ROADSYSTEM_H
 #define CPP_04_CROSSROAD_ROADSYSTEM_H
 
-#include "../../../Engine/Systems/IGraphicSystem.h"
+#include "../../../Engine/Systems/Systems.h"
 
 namespace Game {
     namespace Systems {
