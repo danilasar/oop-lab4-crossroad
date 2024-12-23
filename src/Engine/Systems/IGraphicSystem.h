@@ -13,9 +13,7 @@ namespace Engine {
 
         class IGraphicSystem : public System {
         public:
-            virtual void Redraw() {
-                throw Engine::Exceptions::NotImplementedException();
-            }
+            virtual void Redraw();
         };
 
     } // Systems

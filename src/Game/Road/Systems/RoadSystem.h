@@ -12,7 +12,6 @@ namespace Game {
         class RoadSystem : public ::Engine::Systems::IGraphicSystem {
         public:
             void Redraw();
-
         };
     }
 }
