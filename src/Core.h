@@ -4,7 +4,7 @@
 
 #include "Stores/ResourcesStore.h"
 #include "GameState.h"
-#include "UI/UI.h"
+#include "Game/UI/UI.h"
 #include "utils.h"
 #include "Engine/Systems/IGraphicSystem.h"
 #include "Engine/Systems/ILogicSystem.h"

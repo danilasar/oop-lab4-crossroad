@@ -3,9 +3,9 @@
 //
 
 #include "Workspace.h"
-#include "raygui.h"
-#include "../utils.h"
-#include "../Core.h"
+#include "../../../build/external/raylib-master/examples/shapes/raygui.h"
+#include "../../utils.h"
+#include "../../Core.h"
 
 
 

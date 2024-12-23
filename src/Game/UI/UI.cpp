@@ -3,9 +3,9 @@
 //
 
 #include "UI.h"
-#include "raygui.h"
-#include "../Core.h"
-#include "../utils.h"
+#include "../../../build/external/raylib-master/examples/shapes/raygui.h"
+#include "../../Core.h"
+#include "../../utils.h"
 namespace Game {
     UI::UI() {
         menu = new Menu();

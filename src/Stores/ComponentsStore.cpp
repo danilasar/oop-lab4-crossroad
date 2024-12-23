@@ -3,7 +3,7 @@
 //
 
 #include "ComponentsStore.h"
-#include "../UI/Workspace.h"
+#include "../Game/UI/Workspace.h"
 #include "../utils.h"
 #include "../Game/TrafficLight/Components/TrafficLight.h"
 

@@ -3,8 +3,8 @@
 //
 
 #include "Menu.h"
-#include "raygui.h"
-#include "../Core.h"
+#include "../../../build/external/raylib-master/examples/shapes/raygui.h"
+#include "../../Core.h"
 
 namespace Game {
     void Menu::InitUI() {
