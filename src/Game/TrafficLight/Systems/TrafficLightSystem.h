@@ -19,6 +19,7 @@ namespace Game {
         private:
             std::shared_ptr<::Game::Core> core;
             std::vector<std::shared_ptr<::Game::Entities::TrafficLight>> lights;
+            float GetNextLampDelta(::Game::Components::Rotation r);
         public:
             void Load();
             void Update();

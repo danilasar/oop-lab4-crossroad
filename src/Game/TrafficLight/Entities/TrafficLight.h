@@ -14,7 +14,7 @@ namespace Game {
             TL_TOP,
             TL_LEFT,
             TL_RIGHT,
-            TL_DOWN
+            TL_BOTTOM
         };
 
         enum TrafficLightStatus {
