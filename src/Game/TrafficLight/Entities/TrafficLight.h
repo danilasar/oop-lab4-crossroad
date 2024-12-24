@@ -18,7 +18,7 @@ namespace Game {
         };
 
         enum TrafficLightStatus {
-            TL_BLACK,
+            TL_RED,
             TL_YELLOW,
             TL_GREEN
         };
