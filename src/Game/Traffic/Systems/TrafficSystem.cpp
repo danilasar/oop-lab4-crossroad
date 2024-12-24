@@ -5,6 +5,7 @@
 #include "TrafficSystem.h"
 #include "../../../Core.h"
 #include "../../Car/Entities/CarEntity.h"
+#include "../../TrafficLight/Entities/TrafficLight.h"
 
 
 namespace Game {
@@ -13,8 +14,10 @@ namespace Game {
             core = Game::Core::GetInstance();
             auto &entities = core->GetEntities();
             auto car = std::make_shared<::Game::Entities::CarEntity>(::Game::Entities::CarEntity(Components::LEFT, Components::TOP, 100.0f));
+            auto light1 = std::make_shared<::Game::Entities::TrafficLight>(::Game::Entities::TrafficLight(0, (Vector2){10, 69}, ::Game::Components::TL_LEFT));
             car->position = (Vector2){100, 100};
             entities.push_back(car);
+            entities.push_back(light1);
         }
         void TrafficSystem::Update() {
             auto &entities = core->GetEntities();

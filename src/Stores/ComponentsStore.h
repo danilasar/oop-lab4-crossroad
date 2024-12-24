@@ -4,7 +4,7 @@
 
 #ifndef CPP_04_CROSSROAD_COMPONENTSSTORE_H
 #define CPP_04_CROSSROAD_COMPONENTSSTORE_H
-#include "../Game/TrafficLight/Components/TrafficLight.h"
+#include "../Game/TrafficLight/Entities/TrafficLight.h"
 
 namespace Game {
     namespace Stores {

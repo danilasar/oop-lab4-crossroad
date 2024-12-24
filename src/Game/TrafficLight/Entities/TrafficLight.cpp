@@ -3,22 +3,22 @@
 //
 
 #include "TrafficLight.h"
-#include "../../../../build/external/raylib-master/src/raylib.h"
-#include "../../../../build/external/raylib-master/examples/shapes/raygui.h"
+#include "raylib.h"
+#include "raygui.h"
 
 namespace Game {
     namespace Entities {
-        TrafficLight::TrafficLight(int id, Vector2 pos, Game::Components::Rotation rot) {
+        TrafficLight::TrafficLight(int id, Vector2 pos, ::Game::Components::Rotation rot) {
             this->id = id;
             this->pos = pos;
             this->rot = rot;
         }
 
-        TrafficLightStatus TrafficLight::GetStatus() {
+        ::Game::Components::TrafficLightStatus TrafficLight::GetStatus() {
             return status;
         }
 
-        void TrafficLight::SetStatus(Game::Components::TrafficLightStatus status) {
+        void TrafficLight::SetStatus(::Game::Components::TrafficLightStatus status) {
             this->status = status;
         }
     } // Entities

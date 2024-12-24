@@ -5,7 +5,6 @@
 #include "ComponentsStore.h"
 #include "../Game/UI/Workspace.h"
 #include "../utils.h"
-#include "../Game/TrafficLight/Components/TrafficLight.h"
 
 namespace Game {
     namespace Stores {

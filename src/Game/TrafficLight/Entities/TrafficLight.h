@@ -5,11 +5,11 @@
 #ifndef CPP_04_CROSSROAD_TRAFFICLIGHT_H
 #define CPP_04_CROSSROAD_TRAFFICLIGHT_H
 
+#include "../../../Engine/Entity/EntityBase.h"
 #include "../../../utils.h"
-#include "../../../../build/external/raylib-master/src/raylib.h"
+#include "raylib.h"
 namespace Game {
-    namespace Entities {
-
+    namespace Components {
         enum Rotation {
             TL_TOP,
             TL_LEFT,
@@ -22,8 +22,10 @@ namespace Game {
             TL_YELLOW,
             TL_GREEN
         };
+    }
+    namespace Entities {
 
-        class TrafficLight {
+        class TrafficLight : public ::Engine::Entities::EntityBase {
             ::Game::Components::TrafficLightStatus status;
         public:
             Vector2 pos;
