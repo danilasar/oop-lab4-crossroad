@@ -11,6 +11,7 @@ namespace Engine {
     namespace Systems {
 
         class System {
+        public:
             virtual void system() {}
         };
 
