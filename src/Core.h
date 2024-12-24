@@ -40,7 +40,7 @@ namespace Game {
         double GetDeltaTime();
 
         void AddSystem(std::unique_ptr<::Engine::Systems::System> system);
-        std::shared_ptr<std::deque<std::shared_ptr<::Engine::Entities::EntityBase>>> GetEntities();
+        std::deque<std::shared_ptr<::Engine::Entities::EntityBase>> &GetEntities();
     };
 
 } // Game
