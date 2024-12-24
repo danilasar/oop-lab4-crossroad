@@ -44,7 +44,7 @@ namespace Game {
             void SetBaseSpeed(float newSpeed);
         };
 
-    } // Components
+    } // Entities
 } // Game
 
 #endif //CPP_04_CROSSROAD_CAR_H

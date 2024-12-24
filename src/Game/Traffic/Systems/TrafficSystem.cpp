@@ -12,14 +12,16 @@ namespace Game {
         void TrafficSystem::Load() {
             core = Game::Core::GetInstance();
             auto &entities = core->GetEntities();
-            entities.push_back(std::make_shared<::Game::Entities::CarEntity>(::Game::Entities::CarEntity(Components::LEFT, Components::TOP, 100.0f)));
+            auto car = std::make_shared<::Game::Entities::CarEntity>(::Game::Entities::CarEntity(Components::LEFT, Components::TOP, 100.0f));
+            car->position = (Vector2){100, 100};
+            entities.push_back(car);
         }
         void TrafficSystem::Update() {
             auto &entities = core->GetEntities();
             //auto it = entities->begin();
             for(size_t i = 0; i < entities.size(); ++i) {
-                if (auto *(val) = dynamic_cast<::Game::Entities::CarEntity*>(((entities)[i]).get())) {
-                    DrawRectangle(100, 100, 100, 100 + i, RED);
+                if (auto *(car) = dynamic_cast<::Game::Entities::CarEntity*>(((entities)[i]).get())) {
+                    car->position = (Vector2){car->position.x, car->position.y + 5 * core->GetDeltaTime()};
                 }
                 //++it;
             }

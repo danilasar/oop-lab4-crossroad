@@ -12,5 +12,5 @@ namespace Game {
         ComponentsStore::ComponentsStore() {
             //left = new TrafficLight(0, (Vector2) {TRAFFIC_LIGHT_LEFT_X, TRAFFIC_LIGHT_LEFT_Y}, Horizontal);
         }
-    } // Components
+    } // Entities
 } // Game

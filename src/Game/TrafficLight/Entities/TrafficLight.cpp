@@ -7,7 +7,7 @@
 #include "../../../../build/external/raylib-master/examples/shapes/raygui.h"
 
 namespace Game {
-    namespace Components {
+    namespace Entities {
         TrafficLight::TrafficLight(int id, Vector2 pos, Game::Components::Rotation rot) {
             this->id = id;
             this->pos = pos;
@@ -21,5 +21,5 @@ namespace Game {
         void TrafficLight::SetStatus(Game::Components::TrafficLightStatus status) {
             this->status = status;
         }
-    } // Components
+    } // Entities
 } // Game

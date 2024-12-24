@@ -17,7 +17,7 @@ namespace Game {
             ComponentsStore();
         };
 
-    } // Components
+    } // Entities
 } // Game
 
 #endif //CPP_04_CROSSROAD_COMPONENTSSTORE_H

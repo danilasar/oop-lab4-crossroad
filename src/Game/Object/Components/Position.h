@@ -14,7 +14,7 @@ namespace Game {
 
         };
 
-    } // Components
+    } // Entities
 } // Game
 
 #endif //CPP_04_CROSSROAD_POSITION_H

@@ -6,13 +6,18 @@
 #define CPP_04_CROSSROAD_CARDRAWER_H
 
 #include "../../../Engine/Systems/Systems.h"
+#include "../../../Core.h"
 
 namespace Game {
     namespace Systems {
 
-        class CarPainter : public ::Engine::Systems::IGraphicSystem {
+        class CarPainter : public ::Engine::Systems::ILoadSystem, public ::Engine::Systems::IGraphicSystem {
+        private:
+            std::shared_ptr<::Game::Core> core;
         public:
+            void Load();
             void Redraw();
+            void system() {}
         };
 
     } // Systems

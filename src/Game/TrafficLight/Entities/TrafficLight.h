@@ -8,11 +8,13 @@
 #include "../../../utils.h"
 #include "../../../../build/external/raylib-master/src/raylib.h"
 namespace Game {
-    namespace Components {
+    namespace Entities {
 
         enum Rotation {
-            TL_VERTICAL,
-            TL_HORIZONTAL
+            TL_TOP,
+            TL_LEFT,
+            TL_RIGHT,
+            TL_DOWN
         };
 
         enum TrafficLightStatus {
@@ -33,7 +35,7 @@ namespace Game {
             void NextStatus();
         };
 
-    } // Components
+    } // Entities
 } // Game
 
 #endif //CPP_04_CROSSROAD_TRAFFICLIGHT_H

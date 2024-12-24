@@ -6,5 +6,5 @@
 
 namespace Engine {
     namespace Components {
-    } // Components
+    } // Entities
 } // Game

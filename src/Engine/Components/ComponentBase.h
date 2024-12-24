@@ -12,7 +12,7 @@ namespace Engine {
 
         };
 
-    } // Components
+    } // Entities
 } // Game
 
 #endif //CPP_04_CROSSROAD_COMPONENTBASE_H
